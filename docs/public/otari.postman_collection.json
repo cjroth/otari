@@ -13764,7 +13764,7 @@
                   "language": "json"
                 }
               },
-              "raw": "{\n  \"allowed_tools\": [\n    \"string\"\n  ],\n  \"authorization_token\": \"string\",\n  \"enabled\": false,\n  \"everyone_tools\": [\n    \"string\"\n  ],\n  \"name\": \"string\",\n  \"purpose_hint\": \"string\",\n  \"url\": \"string\"\n}"
+              "raw": "{\n  \"allowed_tools\": [\n    \"string\"\n  ],\n  \"authorization_token\": \"string\",\n  \"enabled\": false,\n  \"everyone_tools\": [\n    \"string\"\n  ],\n  \"name\": \"string\",\n  \"purpose_hint\": \"string\",\n  \"read_tools\": [\n    \"string\"\n  ],\n  \"url\": \"string\"\n}"
             },
             "description": "Update a server. Organization owners/admins or this workspace's owners/admins.\n\nOnly the fields sent are applied. Omit `authorization_token` to leave the\nstored token alone, send an empty string to clear it, or send a value to\nrotate it. A change to the URL, the token or the allow-list checks the\nserver again, as creating it does. `everyone_tools` is what every key of\nthe workspace may call; the server's grants override it per key or user.",
             "header": [
@@ -13839,7 +13839,7 @@
         {
           "name": "Get Workspace Mcp Server Access",
           "request": {
-            "description": "A server's access list. Organization owners/admins or this workspace's owners/admins.\n\n`everyone_tools` is what every key of the workspace may call. Each grant overrides it for one\nkey, or for one user and so every key they own; a key's own grant decides over its owner's.\nTool patterns are names, `*` or `prefix*`, and `[]` denies. The server's `allowed_tools` is a\nceiling over all of them. A server holds at most 1000 grants, returned oldest first.",
+            "description": "A server's access list. Organization owners/admins or this workspace's owners/admins.\n\n`everyone_tools` is what every key of the workspace may call. Each grant overrides it for one\nkey, or for one user and so every key they own; a key's own grant decides over its owner's.\nTool patterns are names, `*`, `prefix*`, or `@read` for the tools the server's `read_tools`\nlabels read, and `[]` denies. The server's `allowed_tools` is a ceiling over all of them. A\nserver holds at most 1000 grants, returned oldest first.",
             "header": [],
             "method": "GET",
             "url": {
