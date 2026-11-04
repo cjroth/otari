@@ -19995,6 +19995,11 @@ export interface components {
             /** Name */
             name: string;
             /**
+             * Read Tools
+             * @description The server's tools labeled read, which '@read' in tools stands for
+             */
+            read_tools?: string[];
+            /**
              * Server Id
              * Format: uuid
              */
